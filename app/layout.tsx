@@ -1,6 +1,7 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
+import { WorkspaceProvider } from '@/components/workspace/workspace-provider'
 
 export const metadata: Metadata = {
   title: 'First Ticket — Your first real-world work starts here',
@@ -40,7 +41,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
-        {children}
+        <WorkspaceProvider>{children}</WorkspaceProvider>
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
